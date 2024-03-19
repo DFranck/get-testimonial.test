@@ -1,23 +1,21 @@
+"use client";
 import { Button } from "@/components/ui/button";
-import { signIn } from "@/lib/auth";
 import { LogIn } from "lucide-react";
+import { signInAction } from "./auth.action";
 
 const SignInButton = () => {
   return (
-    <form>
-      <Button
-        variant={"secondary"}
-        size={"sm"}
-        formAction={async () => {
-          "use server";
-          await signIn();
-        }}
-        className="flex gap-2"
-      >
-        <LogIn size={16} />
-        SignIn
-      </Button>
-    </form>
+    <Button
+      variant={"secondary"}
+      size={"sm"}
+      onClick={() => {
+        signInAction();
+      }}
+      className="flex gap-2"
+    >
+      <LogIn size={16} />
+      SignIn
+    </Button>
   );
 };
 
